@@ -1,0 +1,52 @@
+public class Test {
+    public void rotateArray(int n){
+        int[][] a = new int[n][n];
+        if(n%2!=0)
+       {
+            a[n/2][n/2] = n*n;
+        }
+        int top = -1;
+        int fl= n;
+        int left = -1;
+        int right = n;
+        int value = 1;
+
+        while(left<right && top<fl){
+
+            top++;
+            left++;
+            fl--;
+            right--;
+
+            int x = left;
+            int y = top;
+
+            while(y<fl)
+	   {
+                a[y++][x] = value++;
+            }
+
+            while (x<right) 
+           {
+                a[y][x++] = value++;
+            }
+
+            while(y>top)
+           {
+                a[y--][x]=value++;
+            }
+            while(x>left)
+           {
+                a[y][x--]=value++;
+            }
+        }
+        for (int[] row:a)
+           {
+            for(int num:row){
+                System.out.print(num+"  ");
+            }
+            System.out.println();
+        }
+    }
+    
+}
